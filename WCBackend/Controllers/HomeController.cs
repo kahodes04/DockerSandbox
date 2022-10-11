@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WCBackend.model;
@@ -6,6 +7,7 @@ using WCBackend.Models;
 
 namespace WCBackend.Controllers
 {
+    [EnableCors("NUXT")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
