@@ -7,7 +7,6 @@ using WCBackend.Models;
 
 namespace WCBackend.Controllers
 {
-    [EnableCors("NUXT")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
