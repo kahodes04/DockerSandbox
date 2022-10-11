@@ -9,8 +9,8 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<da33cbrr9f9g7gContext>(options =>
-           options.UseNpgsql(@"Host=ec2-63-32-248-14.eu-west-1.compute.amazonaws.com;Database=da33cbrr9f9g7g;Username=uvrmwdzujsjqup
-                                ;Password=44d80ab1b562f8b747cefb2c8b10b85a47980d68428f92e9769fe720c79874f1"));
+           options.UseNpgsql(@"Host=ec2-34-249-161-200.eu-west-1.compute.amazonaws.com;Database=d88ppm3o06b3t8;Username=kempbthugvslhv
+                                ;Password=96f643d9f55c1740541991d49fe88548581a62749a397b08c52f02a98051bb4a"));
 
 var app = builder.Build();
 

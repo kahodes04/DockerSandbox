@@ -48,7 +48,7 @@ namespace WCBackend.Controllers
             List<Entry> answers;
             try
             {
-                answers = _ctx.Entries.ToList();
+                answers = _ctx.Entries.Where(r => r.Results.Contains("pedo")).ToList();
             }
             catch(Exception ex)
             {
