@@ -5,17 +5,18 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace WCBackend.model
 {
-    public partial class da33cbrr9f9g7gContext : DbContext
+    public partial class d88ppm3o06b3t8Context : DbContext
     {
-        public da33cbrr9f9g7gContext()
+        public d88ppm3o06b3t8Context()
         {
         }
 
-        public da33cbrr9f9g7gContext(DbContextOptions<da33cbrr9f9g7gContext> options)
+        public d88ppm3o06b3t8Context(DbContextOptions<d88ppm3o06b3t8Context> options)
             : base(options)
         {
         }
 
+        public virtual DbSet<Config> Configs { get; set; } = null!;
         public virtual DbSet<Entry> Entries { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,12 +24,26 @@ namespace WCBackend.model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseNpgsql("Host=ec2-63-32-248-14.eu-west-1.compute.amazonaws.com;Database=da33cbrr9f9g7g;Username=uvrmwdzujsjqup;Password=44d80ab1b562f8b747cefb2c8b10b85a47980d68428f92e9769fe720c79874f1", x => x.UseNetTopologySuite());
+                optionsBuilder.UseNpgsql("Host=ec2-34-249-161-200.eu-west-1.compute.amazonaws.com;Database=d88ppm3o06b3t8;Username=kempbthugvslhv;Password=96f643d9f55c1740541991d49fe88548581a62749a397b08c52f02a98051bb4a", x => x.UseNetTopologySuite());
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Config>(entity =>
+            {
+                entity.ToTable("config");
+
+                entity.HasIndex(e => e.Apikey, "config_apikey_key")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Apikey)
+                    .HasMaxLength(50)
+                    .HasColumnName("apikey");
+            });
+
             modelBuilder.Entity<Entry>(entity =>
             {
                 entity.ToTable("entries");

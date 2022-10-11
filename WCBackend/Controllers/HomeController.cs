@@ -9,10 +9,10 @@ namespace WCBackend.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        da33cbrr9f9g7gContext _ctx;
+        d88ppm3o06b3t8Context _ctx;
 
 
-        public HomeController(ILogger<HomeController> logger, da33cbrr9f9g7gContext ctx)
+        public HomeController(ILogger<HomeController> logger, d88ppm3o06b3t8Context ctx)
         {
             _logger = logger;
             _ctx = ctx;
@@ -23,9 +23,15 @@ namespace WCBackend.Controllers
             return StatusCode(403);
         }
 
-        [HttpPost("postanswers/{jsondata}")]
-        public IActionResult PostAnswers([FromForm] string jsondata)
+        [HttpPost("postanswers/{jsondata}/{apikey}")]
+        public IActionResult PostAnswers([FromForm] string jsondata, [FromForm] string apikey)
         {
+            var apikeyexists = _ctx.Configs.Where(r => r.Apikey.Contains(apikey)).Any();
+            if (!apikeyexists)
+            {
+                return StatusCode(403, "Error. Statuscode 403. Apikey does not exist.");
+            }
+
             Entry entry = new Entry();
             entry.Results = jsondata;
             try
@@ -35,16 +41,19 @@ namespace WCBackend.Controllers
             }
             catch (Exception ex)
             {
-                return Json("Error in HomeController::GetAnswers: " + ex);
+                return Json("Error in HomeController::PostAnswers: " + ex);
             }
             return Json("Entry added successfully.");
         }    
         
         [HttpGet("getanswers")]
-        public IActionResult GetAnswers(string jsondata)
+        public IActionResult GetAnswers(string apikey)
         {
-            Entry entry = new Entry();
-            entry.Results = jsondata;
+            var apikeyexists = _ctx.Configs.Where(r => r.Apikey.Contains(apikey)).Any();
+            if (!apikeyexists)
+            {
+                return StatusCode(403, "Error. Statuscode 403. Apikey does not exist.");
+            }
             List<Entry> answers;
             try
             {
