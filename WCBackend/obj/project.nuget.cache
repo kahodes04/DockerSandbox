@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VP2TwZmIWWapYkzxh9TZFs+A/CAmIMOh8DAtQaSvgaapCgxBI2QEgM9ZErG9FHeFJVVNOZyNJBc/5PiJZYa/xA==",
+  "dgSpecHash": "Z6aN5fkBYPNIzi51oxG0K0ym9ZHxIXds2lBMwAmaIqIzCUFnLnY2/waczGp2dbPVKi9isD5xMBc34OEu95Bibg==",
   "success": true,
   "projectFilePath": "D:\\guschi\\Projects\\WCBackend\\WCBackend\\WCBackend.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Sarah\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Sarah\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Sarah\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Sarah\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512",
     "C:\\Users\\Sarah\\.nuget\\packages\\nettopologysuite\\2.0.0\\nettopologysuite.2.0.0.nupkg.sha512",
     "C:\\Users\\Sarah\\.nuget\\packages\\nettopologysuite.io.postgis\\2.1.0\\nettopologysuite.io.postgis.2.1.0.nupkg.sha512",
     "C:\\Users\\Sarah\\.nuget\\packages\\npgsql\\6.0.7\\npgsql.6.0.7.nupkg.sha512",
