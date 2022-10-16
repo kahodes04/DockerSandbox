@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WCBackend.model;
+using WCBackend.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,7 @@ builder.Services.AddCors();
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<d88ppm3o06b3t8Context>(options =>
+builder.Services.AddDbContext<wcContext>(options =>
            options.UseNpgsql(@"Host=dpg-cd4t4o1gp3jqpbpgfad0-a.frankfurt-postgres.render.com;Database=wc;Username=wc_user;Password=OuefQHd7QLpYk19A0bPuY9FfiD9v14fu"));
 
 var app = builder.Build();

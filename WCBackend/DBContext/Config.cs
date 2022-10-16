@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WCBackend
+namespace WCBackend.DBContext
 {
     public partial class Config
     {
