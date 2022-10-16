@@ -5,6 +5,9 @@
     <_SelectedScaffolderCategoryPath>root/Common</_SelectedScaffolderCategoryPath>
     <WebStackScaffolding_ControllerDialogWidth>650.4</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_DbContextDialogWidth>650.4</WebStackScaffolding_DbContextDialogWidth>
-    <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <ActiveDebugProfile>WCBackend</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

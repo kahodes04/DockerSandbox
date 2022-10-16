@@ -27,12 +27,6 @@ namespace WCBackend.Controllers
         [HttpPost("postanswers/{jsondata}/{apikey}")]
         public IActionResult PostAnswers([FromForm] string jsondata, [FromForm] string apikey)
         {
-            var apikeyexists = _ctx.Configs.Where(r => r.Apikey.Contains(apikey)).Any();
-            if (!apikeyexists)
-            {
-                return StatusCode(403, "Error. Statuscode 403. Apikey does not exist.");
-            }
-
             Entry entry = new Entry();
             entry.Results = jsondata;
             try
@@ -50,11 +44,6 @@ namespace WCBackend.Controllers
         [HttpGet("getanswers")]
         public IActionResult GetAnswers(string apikey)
         {
-            var apikeyexists = _ctx.Configs.Where(r => r.Apikey.Contains(apikey)).Any();
-            if (!apikeyexists)
-            {
-                return StatusCode(403, "Error. Statuscode 403. Apikey does not exist.");
-            }
             List<Entry> answers;
             try
             {
