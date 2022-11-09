@@ -10,8 +10,7 @@ app.get('/api/responses/:userid', (req, res) => {
     //database query ->
     const object = [];
     if(!objet) res.status(404).send('can send this as error text');
-    
 })
 
 const port = process.env.port || 3000;
-app.listen(port, () => console.log('server listening'));
+app.listen(port, () => console.log(`server listening on ${port}`));
