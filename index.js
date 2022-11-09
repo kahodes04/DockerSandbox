@@ -1,16 +1,16 @@
-import dbconfig from './data.json' assert { type: 'JSON' };
+// import dbconfig from './data.json' assert { type: 'JSON' };
 const express = require('express');
 const app = express();
 
 
 //DATABASE SETUP
-const { Client } = require('pg')
-const client = new Client({
-  host: 'dpg-cd4t4o1gp3jqpbpgfad0-a.frankfurt-postgres.render.com',
-  port: 5334,
-  user: 'database-user',
-  password: 'secretpassword!!',
-})
+// const { Client } = require('pg')
+// const client = new Client({
+//   host: 'dpg-cd4t4o1gp3jqpbpgfad0-a.frankfurt-postgres.render.com',
+//   port: 5334,
+//   user: 'database-user',
+//   password: 'secretpassword!!',
+// })
 //------------
 
 app.get('/healthcheck', (req, res) => {
