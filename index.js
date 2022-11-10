@@ -29,14 +29,22 @@ app.get('/', (req, res) => {
 });
 app.get('/getdb', (req, res) => {
     console.log(client);
-    client.query('SELECT * FROM "public"."config" LIMIT 1000;', (err, res) => {
-        if (err) {
-            res.send(err.stack);
-        } else {
-            console.log(res.rows[0]);
-            //res.send(res.rows[0]);
-        }
-      })
+
+      client
+      .query('SELECT * FROM "public"."config" LIMIT 1000;')
+      .then(data => res.send(data))
+      .catch(e => console.error(e.stack))
+
+});
+
+app.get('/adddb/:word', (req, res) => {
+    console.log(client);
+
+      client
+      .query(`INSERT INTO "public"."config" results VALUES ${req.params.word}`)
+      .then(data => res.send(data))
+      .catch(e => console.error(e.stack))
+
 });
 
 app.get('/api/responses/:userid', (req, res) => {
