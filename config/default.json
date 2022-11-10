@@ -1,0 +1,8 @@
+{
+    "server": {
+      "host": "dpg-cd4t4o1gp3jqpbpgfad0-a.frankfurt-postgres.render.com",
+      "database": "wc",
+      "user": "wc_user",
+      "password": "OuefQHd7QLpYk19A0bPuY9FfiD9v14fu"
+    }
+  }

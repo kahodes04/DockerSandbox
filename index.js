@@ -1,16 +1,23 @@
-// import dbconfig from './data.json' assert { type: 'JSON' };
+const config = require('config');
 const express = require('express');
 const app = express();
 
-
 //DATABASE SETUP
-// const { Client } = require('pg')
-// const client = new Client({
-//   host: 'dpg-cd4t4o1gp3jqpbpgfad0-a.frankfurt-postgres.render.com',
-//   port: 5334,
-//   user: 'database-user',
-//   password: 'secretpassword!!',
-// })
+var pg = require("pg");
+var client = new pg.Client({
+  host: config.get('server.host'),
+  database: config.get('server.database'),
+  user: config.get('server.user'),
+  password: config.get('server.password'),
+  ssl: true
+})
+client.connect(err => {
+    if (err) {
+      console.error('connection error', err.stack)
+    } else {
+      console.log('connected')
+    }
+  })
 //------------
 
 app.get('/healthcheck', (req, res) => {
@@ -19,6 +26,17 @@ app.get('/healthcheck', (req, res) => {
 
 app.get('/', (req, res) => {
     res.send('Argentina campeona Qatar 2022\nNO VALE ANTIMUFA');
+});
+app.get('/getdb', (req, res) => {
+    console.log(client);
+    client.query('SELECT * FROM "public"."config" LIMIT 1000;', (err, res) => {
+        if (err) {
+            res.send(err.stack);
+        } else {
+            console.log(res.rows[0]);
+            //res.send(res.rows[0]);
+        }
+      })
 });
 
 app.get('/api/responses/:userid', (req, res) => {
